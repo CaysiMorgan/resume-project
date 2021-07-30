@@ -1,40 +1,53 @@
 ﻿using System;
 
-namespace resume_project
+namespace resume
 {
     class Program
     {
         static void Main(string[] args)
         {
-            string[] work_exp = new string[5];
-            string[] education= new string[5];
-            string[] skills = new string[5];
-            int i;
-            Console.Write("Name:"); 
-            var name = Console.ReadLine();
-            Console.Write("Address:");
-            var address = Console.ReadLine();
-            Console.Write("Telephone number:");
-            var telenum = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Email Address");
-            var email = Console.ReadLine();
-            Console.WriteLine("Summary paragraph:");
-            var summary = Console.ReadLine();
+            //create new instance of a resume
+            var Newpeople = new resume();
 
-            for (i = 0; i < 5; i++)
+            Console.WriteLine(" Welcome to your Resume ");
+            Console.WriteLine(" ***************************");
+            Console.WriteLine("Please enter your name:");
+            Console.Write(" First name:");
+            Newpeople.Fname = Console.ReadLine();
+            Console.Write(" Last name:");
+            Newpeople.Lname = Console.ReadLine();
+            Console.Write("Please enter your address:");
+            Newpeople.address = Console.ReadLine();
+            Console.Write("Please enter your telephone number:");
+            Newpeople.telenum = Console.ReadLine();
+            Console.Write("Please enter your Email Address:");
+            Newpeople.email = Console.ReadLine();
+            Console.WriteLine("Your summary paragraph:");
+            Newpeople.summary = Console.ReadLine();
+            Console.WriteLine("Please enter your skills:");
+            Console.WriteLine("Your summary paragraph:");
+            Newpeople.summary = Console.ReadLine();
+            Console.WriteLine("Your summary paragraph:");
+            Newpeople.summary = Console.ReadLine();
+            Console.WriteLine(Newpeople.GetDescription());
+
+        }
+
+
+        public class resume
+        {
+            public string Fname { get; set; }
+            public string Lname { get; set; }
+            public string telenum { get; set; }
+            public string address { get; set; }
+            public string email { get; set; }
+            public string summary { get; set; }
+            public string GetDescription()
             {
-                Console.WriteLine("Work Experience:");
-                work_exp[i] = Console.ReadLine();
-            }
-            for (i = 0; i < 2; i++)
-            {
-                Console.WriteLine("Education:");
-                education[i] = Console.ReadLine();
-            }
-            for (i = 0; i < 5; i++)
-            {
-                Console.WriteLine("Skills:");
-                skills[i] = Console.ReadLine();
+
+                return $"\n \n{Fname} {Lname}'s\nResume\n_____________________\nContact information: \n************** \nAddress: {address}\nTelephone: {telenum} \nEmail:{email} \nPersonal profile:\n {summary} .";
+
+
             }
         }
     }
